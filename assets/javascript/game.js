@@ -43,6 +43,13 @@ var checkKey = function(userGuess) {
     }
 }
 
+// adds to guessed letters if incorrect
+var guessedWrong = function(userGuess) {
+    if (userGuess !== teams) {
+        guessedLetters.push(userGuess);
+    }
+}
+
 
 // This function is starts the game on keypress & pulls the word from teams array
 
