@@ -51,6 +51,8 @@ console.log(currentWord());
 // updates HTML
 var updatedHtml = function(element) {
     document.getElementById("guessedLetters").innerHTML = guessedLetters;
+    document.getElementById("remaingGuess").innerHTML = remainGuess;
+    document.getElementById("currentWord").innerHTML = currentWord();
 }
 
 // Starts the game on keypress & adds to guess array
@@ -67,8 +69,6 @@ document.onkeyup = function(event) {
     updatedHtml();
 
 }
-
-
 
 // 
 //  RE-ORG For DeBug
