@@ -15,6 +15,13 @@
 
 
 var teams = [
+    // ["B", "O", "S", "T", "O", "N", "R", "E", "D", "S", "O", "X"],
+    // ["B", "A", "L", "T", "I", "M", "O", "R", "E", "O", "R", "I", "O", "L", "E", "S"],
+    // ["T", "A", "M", "P", "A", "B", "A", "Y", "R", "A", "Y", "S"],
+    // ["L", "O", "S", "A", "N", "G", "E", "L", "E", "S", "D", "O", "D", "G", "E", "R", "S"],
+    // ["L", "O", "S", "A", "N", "G", "E", "L", "E", "S", "A", "N", "G", "E", "L", "E", "S"],
+    // ["A", "R", "I", "Z", "O", "N", "A", "D", "I", "A", "M", "O", "N", "D", "B", "A", "C", "K", "S"],
+    // ["K", "A", "N", "S", "A", "S", "C", "I", "T", "Y", "R", "O", "Y", "A", "L", "S"]
     "BOSTON RED SOX",
     "BALTIMORE ORIOLES",
     "TAMPA BAY RAYS",
@@ -27,66 +34,73 @@ var teams = [
 var wins = 0;
 var remainGuess = 10;
 var guessedLetters = [];
+var loses = 0;
+var wins = 0;
+var blanks = "";
 
 // variable for randomly choosing current word
 var currentWord = function() {
-        return teams[Math.floor(Math.random() * teams.length)];
-    }
-    // Test - randomly choosing word
+    return teams[Math.floor(Math.random() * teams.length)];
+}
+
+// Test - randomly choosing word
 console.log(currentWord());
 
-// checks if guessed key already
 
-var checkKey = function(userGuess) {
-    if (userGuess === guessedLetters) {
 
-    }
+// updates HTML
+var updatedHtml = function(element) {
+    document.getElementById("guessedLetters").innerHTML = guessedLetters;
 }
 
-// adds to guessed letters if incorrect
-var guessedWrong = function(userGuess) {
-    if (userGuess !== teams) {
-        guessedLetters.push(userGuess);
-    }
-}
-
-
-// This function is starts the game on keypress & pulls the word from teams array
-
+// Starts the game on keypress & adds to guess array
 document.onkeyup = function(event) {
 
-    var userGuess = event.key;
+    // Determines which key was pressed
+    var userGuess = event.key.toUpperCase();
+
+    // adds pressed keys to guessedLetters array
+    guessedLetters.push(userGuess);
+    console.log(guessedLetters);
 
     currentWord();
+    updatedHtml();
+
 }
 
 
+
 // 
-//  REFRENCE CODE FROM PREVIOUS PROJECT
+//  RE-ORG For DeBug
 // 
 
 
-
-// This function is run whenever the user presses a key.
-// document.onkeyup = function(event) {
-
-//     // Determines which key was pressed
-//     var userGuess = event.key;
-
-//     // Alerts the key the user pressed (userGuess).
-//     console.log(userGuess);
-//     if (checkKey(userGuess)) {
-
-//         // Randomly chooses a choice from the teams array. This is the currentWord.
-//         var computerGuess = teams[Math.random() * options.length];
-
-//         // Alerts the Computer's guess.
-//         console.log(computerGuess);
-
-//         keepRecord(calcWin(userGuess, computerGuess));
-
-//         updateHtml();
-//     } else {
-//         console.log("try again");
+// //  Function for display of "_" - blank letters that have not been guessed
+// var blankWord = function() {
+//     for (var i = 0; i < currentWord.length; i++) {
+//         blanks = +"_";
 //     }
-// };
+// }
+
+// // Conditionals to check if userGuess is in teams array
+// var conditions = function(userGuess) {
+
+//     for (var i = 0; i < currentWord.length; i++) {
+//         if (userGuess === currentWord[i]) {
+
+//         }
+//     }
+
+// }
+
+// // adds to guessed letters if incorrect
+// var guessedWrong = function(userGuess) {
+//     if (userGuess !== teams) {
+//         guessedLetters.push(userGuess);
+//     }
+// }
+
+// // checks if guessed key already
+// var checkKey = function(userGuess) {
+//     if (userGuess === guessedLetters) {}
+// }
