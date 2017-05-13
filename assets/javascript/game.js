@@ -16,9 +16,10 @@
 var losses = 0;
 var wins = 0;
 var blanks = "";
+var guesses = 0;
 var guessedLetters = [];
 var successLetters = [];
-var wrongletters = [];
+var wrongLetters = [];
 
 var teams = [
     "boston red sox",
@@ -62,77 +63,91 @@ function startGame() {
         blankAndSuccesses.push("_");
     }
     // update html on page
-    blankAndSuccesses = blankAndSuccesses.join(", ");
-    // document.getElementById('wordBlanks').innerHTML = blankAndSuccesses;
+    blankAndSuccesses = blankAndSuccesses.join(" ");
+    document.getElementById('wordBlanks').innerHTML = blankAndSuccesses;
 
+    // set #guess-left to numberOfGuesses
+    document.getElementById("remainingGuess").innerHTML = 12;
+
+    // set #wrong-guesses to empty / clears the wrong guesses from the previous round
+    document.getElementById("guessedLetters").innerHTML = [];
 
     // Tests
     console.log("Test: team into array:" + currentWord);
-    console.log("Test: count # of _ needed: " + blanks);
-    console.log("Test: blanksAndSuccesses " + blankAndSuccesses)
 
 }
 
 // checkLetters() function
-
-function checkLetters(letter) {
+function checkLetters(userGuess, currentWord) {
 
     var letterInWord = false;
-    // Check if a letter exists inside currenWord array
+    // Check if a letter exists inside currentWord array
     for (var i = 0; i < blanks; i++) {
-        if (letter === currentWord[i]) {
+        if (userGuess === currentWord[i]) {
             letterinWord = true;
+            userGuess = guesses++;
         }
     }
+    // If `letterInWord`, then figure out exactly where (which indices).
     if (letterInWord) {
         for (var i = 0; i < currentWord.length; i++) {
-            if (currentWord[i] === letter) {
-
+            if (currentWord[i] === userGuess) {
+                // Fill in the blanksAndSuccesses with every instance of the letter.
+                blankAndSuccesses[i].push(userGuess);
+                successLetters[i] = userGuess;
+            } else {
+                // If the letter doesn't exist at all...
+                // ..then we add the letter to the list of wrong letters, and we subtract one of the guesses.
+                guesses--
+                wrongLetters.push(userGuess);
             }
         }
+
     }
+
+    console.log("Success Letters: " + successLetters);
+    console.log("wrong letters: " + wrongLetters);
+    console.log("number of guesses: " + guesses);
 }
 
-function roundComplete() {
+function roundComplete(userGuess) {
     // initial test for status of game
-    console.log(wins, losses, guesses);
+    console.log("wins: " + wins, "losses: " + losses, "guesses: " + guesses);
 
     // update HTML to reflect number of guesses
-    document.getElementById('remainingGuesses').innerHTML = guesses;
+    document.getElementById('remainingGuess').innerHTML = 12 - guesses;
     // update HTML to reflect number of correct guesses
-    document.getElementById('correctGuesses').innerHTML = wordBlanks;
+
     // update wordBlanks to show any correct guesses
 
+
     // update #guessedLetters to show the wrong guesses
-    document.getElementById('guessedLetters').innerHTML = wrongLetteres;
+    document.getElementById('guessedLetters').innerHTML = wrongLetters;
 
     // If we have gotten all the letters to match the solution...
-    // ..add to the win counter & give the user an alert.
-
+    // ..add to the win counter & give the user an alert.ju ,
     // Update the win counter in the HTML & restart the game.
-    startGame();
+    // startGame();
 
     // If we've run out of guesses..
     // Add to the loss counter.
     // Give the user an alert.
     // Update the loss counter in the HTML.
     // Restart the game.
-    startGame();
+    // startGame();
 
 }
 
 // once page loads, game starts
-startGame();
+window.onload = startGame();
 
 // Starts the game on keypress & adds to guess array
 document.onkeyup = function(event) {
 
     // Determines which key was pressed & converts to lowercase
-    var userGuess = String.fromCharCode(event.key).toLowerCase();
+    var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
 
-    // adds pressed keys to guessedLetters array --- FROM OLD VERSION
-    guessedLetters.push(userGuess);
-    console.log(guessedLetters);
+    console.log("user guess: " + userGuess);
 
     // runs the checkLetters function for correctness
     checkLetters(userGuess);
