@@ -26,35 +26,51 @@
 
     <div class="container text-center">
 
-
-        <p class="well">Press any key to get started!</p>
-        <br />
-
-        <!-- Wins-->
-        <div>
-            <p>Wins</p>
-            <div id="wins" class="well"></div>
+        <div class="container">
+            <div class="row" id="banner">
+                <h1>Baseball Hangman</h1>
+            </div>
+        </div>
+        <div class="container jumbotron">
+            <div class="row">
+                <p class="well col-md-12">Press any key to get started!</p>
+            </div>
+            <div class="row">
+                <!-- Current Word -->
+                <p>Current Word</p>
+                <div id="wordBlanks" class="well"></div>
+            </div>
+            <!-- Letters Guessed -->
+            <div class="row">
+                <p>Letters Already Guessed</p>
+                <div id="guessedLetters" class="well"></div>
+            </div>
         </div>
 
-        <!-- Current Word -->
-        <div>
-            <p>Current Word</p>
-            <div id="wordBlanks" class="well"></div>
+
+        <div class="container jumbotron">
+            <!-- Guesses -->
+            <div class="row">
+                <p>Number of Guesses Remaining</p>
+                <img src="assets/images/scoreboard.jpg">
+                <div id="remainingGuess" class="well"></div>
+            </div>
+            <!-- Wins-->
+            <div class="row">
+                <div class="col-md-6">
+                    <p>Wins</p>
+                    <div id="wins" class="well"></div>
+                </div>
+
+                <!-- Losses-->
+                <div class="col-md-6">
+                    <p>Losses</p>
+                    <div id="losses" class="well"></div>
+                </div>
+            </div>
         </div>
-        <!-- Guesses -->
-        <div>
-            <p>Number of Guesses Remaining</p>
-            <div id="remainingGuess" class="well"></div>
-        </div>
-        <!-- Letters Guessed -->
-        <div>
-            <p>Letters Already Guessed</p>
-            <div id="guessedLetters" class="well"></div>
-        </div>
-        <div>
-            <p>Correct Gueses</p>
-            <div id="correctGuesses" class="well"></div>
-        </div>
+
+
     </div>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="assets/javascript/game.js"></script>
