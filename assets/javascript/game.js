@@ -71,6 +71,7 @@ var startGame = function() {
 
     // Break currentWord string into array of letters
     currentWord = word.split("");
+    wordJoined = currentWord.join(" ");
 
     // count number of "_" needed
     blanks = currentWord.length;
@@ -81,7 +82,7 @@ var startGame = function() {
         blankAndSuccesses.push("_");
     }
     // update html on page
-    document.getElementById('wordBlanks').innerHTML = blankAndSuccesses.join();
+    document.getElementById('wordBlanks').innerHTML = blankAndSuccesses.join(" ");
 
     // set #guess-left to numberOfGuesses
     document.getElementById("remainingGuess").innerHTML = guesses;
@@ -107,11 +108,11 @@ var checkLetters = function() {
         }
         // If `letterInWord`, then figure out exactly where (which indices).
         if (letterInWord) {
-            for (var i = 0; i < currentWord.length; i++) {
-                if (currentWord[i] === userGuess) {
+            for (var j = 0; j < currentWord.length; j++) {
+                if (currentWord[j] === userGuess) {
                     // Fill in the blanksAndSuccesses with every instance of the letter.
-                    blankAndSuccesses[i] = userGuess;
-                    successLetters[i] = userGuess;
+                    blankAndSuccesses[j] = userGuess;
+                    successLetters[j] = userGuess;
                     console.log("update me " + blankAndSuccesses);
                     console.log(successLetters);
                 } // end if
@@ -119,9 +120,11 @@ var checkLetters = function() {
         } else if (!letterInWord) {
             // If the letter doesn't exist at all...
             // ..then we add the letter to the list of wrong letters, and we subtract one of the guesses.
+            console.log("comma? " + wrongLetters)
             wrongLetters.push(userGuess);
             guesses = guesses + 1;
         };
+
     } // end checkLetters
 
 
@@ -134,15 +137,15 @@ var roundComplete = function(userGuess) {
     // update HTML to reflect number of correct guesses
 
     // Update #word-blanks to show any correct guesses
-    document.getElementById('wordBlanks').innerHTML = blankAndSuccesses;
+    document.getElementById('wordBlanks').innerHTML = blankAndSuccesses.join(" ");
 
     // update #guessedLetters to show the wrong guesses
-    document.getElementById('guessedLetters').innerHTML = wrongLetters;
+    document.getElementById('guessedLetters').innerHTML = wrongLetters.join(" ");
 
     // If we have gotten all the letters to match the solution...
-    successString = successLetters.join("").toString();
+    successString = successLetters.join(" ").toString();
 
-    if (successString === word) {
+    if (successString === wordJoined) {
         console.log("did i win?: " + blankAndSuccesses + currentWord)
             // ..add to the win counter & give the user an alert,
         wins++;
@@ -158,7 +161,7 @@ var roundComplete = function(userGuess) {
         // Add to the loss counter.
         losses++;
         // Give the user an alert.
-        window.alert("Sorry slugger, you lost that round. Top of the order and on to the next inning for you!");
+        window.alert("Sorry slugger, you lost that round. The answer was " + word + " Top of the order and on to the next inning for you!");
         // Update the loss counter in the HTML.
         document.getElementById("losses").innerHTML = losses;
         // Restart the game.

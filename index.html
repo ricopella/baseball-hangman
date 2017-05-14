@@ -23,57 +23,56 @@
     <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-
-    <div class="container text-center">
-
+    <div id="page" class="container">
         <div class="container">
             <div class="row" id="banner">
                 <h1>Baseball Hangman</h1>
             </div>
         </div>
-        <div class="container jumbotron">
-            <div class="row">
-                <p class="well col-md-12">Press any key to get started!</p>
-            </div>
-            <div class="row">
-                <!-- Current Word -->
-                <p>Current Word</p>
-                <div id="wordBlanks" class="well"></div>
-            </div>
-            <!-- Letters Guessed -->
-            <div class="row">
-                <p>Letters Already Guessed</p>
-                <div id="guessedLetters" class="well"></div>
-            </div>
-        </div>
+
 
 
         <div class="container jumbotron">
             <!-- Guesses -->
             <div class="row">
-                <p>Number of Guesses Remaining</p>
-                <img src="assets/images/scoreboard.jpg">
-                <div id="remainingGuess" class="well"></div>
-            </div>
-            <!-- Wins-->
-            <div class="row">
-                <div class="col-md-6">
-                    <p>Wins</p>
-                    <div id="wins" class="well"></div>
-                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 scorecol">
+                            <div class="row scoredisplay">
+                                <div id="remainingGuess" class="scoreFont"></div>
+                            </div>
+                            <div class="row scoredisplay">
+                                <!-- Current Word -->
+                                <div id="wordBlanks" class="scoreFont"></div>
+                            </div>
+                            <div class="row scoredisplay">
+                                <div id="guessedLetters" class="scoreFont"></div>
+                            </div>
+                        </div>
 
-                <!-- Losses-->
-                <div class="col-md-6">
-                    <p>Losses</p>
-                    <div id="losses" class="well"></div>
+
+                        <!-- Wins-->
+                        <div class="col-md-4 winlo">
+                            <div class="col-md-12">
+                                <div id="wins" class="scoreFont"></div>
+                            </div>
+
+                            <!-- Losses-->
+                            <div class="col-md-12">
+                                <div id="losses" class="scoreFont"></div>
+                            </div>
+                        </div>
+                        <!-- end scoreboard row -->
+
+
+                    </div>
+
                 </div>
             </div>
+
         </div>
-
-
-    </div>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script src="assets/javascript/game.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script src="assets/javascript/game.js"></script>
 </body>
 
 </html>
