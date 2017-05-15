@@ -88,7 +88,7 @@ var startGame = function() {
     document.getElementById('wordBlanks').innerHTML = blankAndSuccesses.join(" ");
 
     // set #guess-left to numberOfGuesses
-    document.getElementById("remainingGuess").innerHTML = guesses;
+    document.getElementById("remainingGuess").innerHTML = " ";
 
     // set #wrong-guesses to empty / clears the wrong guesses from the previous round
     document.getElementById("guessedLetters").innerHTML = [];
@@ -131,8 +131,24 @@ var checkLetters = function() {
 var roundComplete = function(userGuess) {
 
     // update HTML to reflect number of guesses
-    document.getElementById('remainingGuess').innerHTML = guesses;
-    // update HTML to reflect number of correct guesses
+
+    if (guesses === 1) {
+        document.getElementById('remainingGuess').innerHTML = "X";
+    } else if (guesses === 2) {
+        document.getElementById('remainingGuess').innerHTML = "X X";
+    } else if (guesses === 3) {
+        document.getElementById('remainingGuess').innerHTML = "X X X";
+    } else if (guesses === 4) {
+        document.getElementById('remainingGuess').innerHTML = "X X X X";
+    } else if (guesses === 5) {
+        document.getElementById('remainingGuess').innerHTML = "X X X X X";
+    } else if (guesses === 6) {
+        document.getElementById('remainingGuess').innerHTML = "X X X X X X";
+    } else if (guesses === 7) {
+        document.getElementById('remainingGuess').innerHTML = "X X X X X X   X";
+    } else {
+        document.getElementById('remainingGuess').innerHTML = "Last Guess!";
+    }
 
     // Update #word-blanks to show any correct guesses
     document.getElementById('wordBlanks').innerHTML = blankAndSuccesses.join(" ");
@@ -157,9 +173,9 @@ var roundComplete = function(userGuess) {
     // If we've run out of guesses..
     if (guesses === 9) {
         // Add to the loss counter.
+        out.play();
         losses++;
         // Give the user an alert.
-        out.play();
         window.alert("Sorry slugger, you lost that round. The answer was " + word + ". Top of the order and on to the next inning for you!");
         // Update the loss counter in the HTML.
         document.getElementById("losses").innerHTML = losses;

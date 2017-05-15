@@ -36,6 +36,7 @@ div#remainingGuess {
     font-size: 30px;
     position: absolute;
     top: 189%;
+    letter-spacing: 10px;
 }
 
 div#wordBlanks {
