@@ -31,6 +31,9 @@ var wrongLetters = [];
 var currentWord;
 var userGuess;
 var blanks;
+var homerun = new Audio('assets/audio/homerun.mp3');
+var playBall = new Audio('assets/audio/playball.mp3');
+var out = new Audio('assets/audio/out.mp3');
 
 var teams = [
     "homerun",
@@ -90,8 +93,9 @@ var startGame = function() {
     // set #wrong-guesses to empty / clears the wrong guesses from the previous round
     document.getElementById("guessedLetters").innerHTML = [];
 
-    // Tests
-    console.log("Test: team into array:" + currentWord);
+    document.getElementById("wins").innerHTML = wins;
+
+    document.getElementById("losses").innerHTML = losses;
 
 }
 
@@ -103,7 +107,6 @@ var checkLetters = function() {
         for (var i = 0; i < blanks; i++) {
             if (userGuess === currentWord[i]) {
                 letterInWord = true;
-                console.log(letterInWord);
             }
         }
         // If `letterInWord`, then figure out exactly where (which indices).
@@ -113,14 +116,11 @@ var checkLetters = function() {
                     // Fill in the blanksAndSuccesses with every instance of the letter.
                     blankAndSuccesses[j] = userGuess;
                     successLetters[j] = userGuess;
-                    console.log("update me " + blankAndSuccesses);
-                    console.log(successLetters);
                 } // end if
             } // end for
         } else if (!letterInWord) {
             // If the letter doesn't exist at all...
             // ..then we add the letter to the list of wrong letters, and we subtract one of the guesses.
-            console.log("comma? " + wrongLetters)
             wrongLetters.push(userGuess);
             guesses = guesses + 1;
         };
@@ -129,8 +129,6 @@ var checkLetters = function() {
 
 
 var roundComplete = function(userGuess) {
-    // initial test for status of game
-    console.log("wins: " + wins, "losses: " + losses, "guesses: " + guesses);
 
     // update HTML to reflect number of guesses
     document.getElementById('remainingGuess').innerHTML = guesses;
@@ -146,22 +144,23 @@ var roundComplete = function(userGuess) {
     successString = successLetters.join(" ").toString();
 
     if (successString === wordJoined) {
-        console.log("did i win?: " + blankAndSuccesses + currentWord)
-            // ..add to the win counter & give the user an alert,
+        // ..add to the win counter & give the user an alert,
+        homerun.play();
         wins++;
-        window.alert("You Win! Congrats. Click 'OK' for the next round.");
+        window.alert("You won! Click 'OK' for the next round.");
 
         // Update the win counter in the HTML & restart the game.
         document.getElementById("wins").innerHTML = wins;
         startGame();
     }
-    console.log("pre-guesses " + guesses);
+
     // If we've run out of guesses..
     if (guesses === 9) {
         // Add to the loss counter.
         losses++;
         // Give the user an alert.
-        window.alert("Sorry slugger, you lost that round. The answer was " + word + " Top of the order and on to the next inning for you!");
+        out.play();
+        window.alert("Sorry slugger, you lost that round. The answer was " + word + ". Top of the order and on to the next inning for you!");
         // Update the loss counter in the HTML.
         document.getElementById("losses").innerHTML = losses;
         // Restart the game.
@@ -177,8 +176,7 @@ document.onkeyup = function(event) {
 
     // Determines which key was pressed & converts to lowercase
     userGuess = String.fromCharCode(event.keyCode).toLowerCase();
-
-    console.log("user guess: " + userGuess);
+    playBall.play();
 
     // runs the checkLetters function for correctness
     checkLetters(userGuess);
