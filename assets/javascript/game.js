@@ -146,8 +146,10 @@ var roundComplete = function(userGuess) {
         document.getElementById('remainingGuess').innerHTML = "X X X X X X";
     } else if (guesses === 7) {
         document.getElementById('remainingGuess').innerHTML = "X X X X X X   X";
-    } else {
+    } else if (guesses === 8) {
         document.getElementById('remainingGuess').innerHTML = "Last Guess!";
+    } else if (guesses === 9) {
+        document.getElementById('remainingGuess').innerHTML = "You're Out!";
     }
 
     // Update #word-blanks to show any correct guesses
