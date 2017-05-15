@@ -20,7 +20,7 @@
 //      -   add to losses
 //      -   start new game
 
-
+// declare global variables
 var losses = 0;
 var wins = 0;
 var blanks = "";
@@ -35,6 +35,7 @@ var homerun = new Audio('assets/audio/homerun.mp3');
 var playBall = new Audio('assets/audio/playball.mp3');
 var out = new Audio('assets/audio/out.mp3');
 
+// set array of random words
 var teams = [
     "homerun",
     "walk",
@@ -54,7 +55,7 @@ var teams = [
     "steal"
 ];
 
-
+// start game function
 var startGame = function() {
     //  Reset guessed letters array to 0 and remainingGuess to 0
     guesses = 0;
@@ -68,9 +69,6 @@ var startGame = function() {
 
     // Solution for randomly choosing current word
     word = teams[Math.floor(Math.random() * teams.length)];
-
-    // Test - randomly choosing word
-    console.log("Test Random team:" + currentWord);
 
     // Break currentWord string into array of letters
     currentWord = word.split("");
@@ -126,7 +124,6 @@ var checkLetters = function() {
         };
 
     } // end checkLetters
-
 
 var roundComplete = function(userGuess) {
 
