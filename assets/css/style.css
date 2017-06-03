@@ -1,17 +1,21 @@
+* {
+    border: 1px solid red;
+}
+
 #page {
     margin-left: auto;
     margin-right: auto;
 }
 
 #banner {
-    background-color: #0d2b56;
+    background-color: #002244;
 }
 
 #banner h1,
 p {
-    color: white;
+    color: #FFFFFF;
     text-align: center;
-    color: #bd3039;
+    color: #C60C30;
     font: MLB Tuscan;
 }
 
@@ -20,30 +24,58 @@ p {
 }
 
 .scoreFont {
-    color: #084117;
+    color: #00483A;
 }
 
-.container.jumbotron {
-    background: url("../images/scoreboard2.jpeg");
-    background-repeat: no-repeat;
+.container #full-board {
+    background-color: #084117;
     background-size: 100%;
-    height: 590px;
     border-radius: 0;
+    padding: 2%;
+}
+
+#white-border {
+    margin: .5%;
+    border: 18px solid white;
+}
+
+#innings {
+    letter-spacing: 12px;
+    font-size: 36px;
+    font-weight: bold;
+}
+
+#FP {
+    font-size: 63px;
+    letter-spacing: 6px;
+    font-weight: bold;
+}
+
+.sbfonts {
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.sbfonts2 {
+    text-align: right;
+    color: #FFFFFF;
+    font-size: 36px;
+}
+
+#main-row {
+    border-bottom: 19px solid white;
 }
 
 div#remainingGuess {
     color: #084117;
     font-size: 30px;
-    position: absolute;
-    top: 189%;
     letter-spacing: 10px;
 }
 
 div#wordBlanks {
-    font-size: 49px;
+    font-size: 36px;
     color: #084117;
-    position: absolute;
-    top: 297%;
+    background-color: white;
 }
 
 div#guessedLetters {
@@ -80,13 +112,16 @@ img.num {
 }
 
 .scoredisplay {
-    padding-left: 50%;
+    background-color: white;
+    margin-left: 2%;
+    padding-left: 3%;
 }
 
 
 /* Media Queries */
 
-@media screen and (min-width: 992px) and (max-width: 1200px) {
+
+/*@media screen and (max-width: 1200px) {
     div#remaingingGuess {
         top: 157%;
     }
@@ -103,29 +138,28 @@ img.num {
     div#losses {
         padding-top: 43%;
     }
-}
 
-@media screen and (min-width: 768px) and (max-width: 991px) {
-    div#remaingingGuess {
-        top: 120%;
-        left: 31%;
-    }
-    div#wordBanks {
-        top: 261%;
-        left: 31%;
-        font-size: 38px;
-    }
-    div#guessedLetters {
-        top: 613%;
-        left: 31%;
-        font-size: 33px;
-    }
-    div#wins {
-        font-size: 30px;
-        padding-top: 71%;
-        padding-left: 67%;
-    }
-    div#losses {
-        padding-left: 67%;
-    }
-}
+    @media screen and (max-width: 991px) {
+        div#remaingingGuess {
+            top: 120%;
+            left: 31%;
+        }
+        div#wordBanks {
+            top: 261%;
+            left: 31%;
+            font-size: 38px;
+        }
+        div#guessedLetters {
+            top: 613%;
+            left: 31%;
+            font-size: 33px;
+        }
+        div#wins {
+            font-size: 30px;
+            padding-top: 71%;
+            padding-left: 67%;
+        }
+        div#losses {
+            padding-left: 67%;
+        }
+    }*/
