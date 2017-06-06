@@ -23,8 +23,12 @@ p {
     width: 100%;
 }
 
+.col-md-5.col-sm-8.scorecol {
+    margin-left: 3%;
+}
+
 .scoreFont {
-    color: #00483A;
+    color: #FFFFFF;
 }
 
 .container #full-board {
@@ -54,6 +58,7 @@ p {
 .sbfonts {
     text-align: center;
     color: #FFFFFF;
+    font-size: 38px;
 }
 
 .sbfonts2 {
@@ -91,13 +96,13 @@ div#guessedLetters {
     ;
 }
 
-div#wins {
+#wins {
     font-size: 38px;
     padding-top: 78%;
     padding-left: 33%;
 }
 
-div#losses {
+#losses {
     font-size: 38px;
     padding-top: 49%;
     padding-left: 33%;
