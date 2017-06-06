@@ -79,9 +79,16 @@ div#wordBlanks {
 }
 
 div#guessedLetters {
-    position: absolute;
-    top: 647%;
     font-size: 40px;
+}
+
+#atBatNum {
+    background-color: #084117;
+    border: 2px solid black;
+    font-size: 36px;
+    width: 10%;
+    color: yellow;
+    ;
 }
 
 div#wins {
