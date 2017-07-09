@@ -110,17 +110,51 @@ div#wordBlanks {
     background-color: white;
 }
 
+div#guessedLettersRow {
+    float: left;
+    width: 37%;
+}
+
 div#guessedLetters {
     font-size: 40px;
+}
+
+#atBatNumRow {
+    width: 16.667%;
+    float: left;
+    margin-left: 9%;
+    margin-right: -5%;
 }
 
 #atBatNum {
     background-color: #084117;
     border: 2px solid black;
     font-size: 36px;
-    width: 10%;
+    width: 27%;
     color: yellow;
-    ;
+}
+
+#guessedLetters {
+    font-size: 36px;
+    color: #084117;
+    background-color: white;
+}
+
+#btbord {
+    position: absolute;
+    border-left: 19px solid white;
+    height: 126px;
+    margin-left: 66.5%;
+}
+
+#atbattguess {
+    width: 23.333%;
+    float: left;
+}
+
+#atbattguess1 {
+    width: 33.33333333%;
+    float: left;
 }
 
 img.num {

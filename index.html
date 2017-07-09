@@ -76,7 +76,7 @@
                                     <div class="corecol">
                                         <div class="row scoredisplay">
                                             <!-- Current Word -->
-                                            <div id="wordBlanks" class="scoreFont"></div>
+                                            <div id="wordBlanks"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -97,13 +97,19 @@
                         </div>
                         <!-- second row-->
                         <div class="row" id="bottom-row">
-                            <p id="atBat" class="sbfonts">AT BAT BALL STRIKE OUT</p>
+                            <div id="atBat" class="sbfonts row">
+                                <div id="atbattguess">AT BAT</div>
+                                <div id="atbattguess1">LETTERS GUESSED</div>
+                                <div id="btbord"> </div>
+
+                            </div>
                             <div class="row">
-                                <div class="col-md-5 col-sm-8 scorecol">
+                                <div class="scorecol" id="atBatNumRow">
                                     <p id="atBatNum">12</p>
-                                    <div class="col-md-5 col-sm-8 scorecol scoredisplay">
-                                        <div id="guessedLetters" class="scoreFont"></div>
-                                    </div>
+                                </div>
+                                <div class="scoredisplay" id="guessedLettersRow">
+                                    <div id="guessedLetters" class="scoreFont"></div>
+
                                 </div>
                             </div>
                             <!--end second row-->
