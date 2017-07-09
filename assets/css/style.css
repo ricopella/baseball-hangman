@@ -23,10 +23,6 @@ p {
     width: 100%;
 }
 
-.col-md-5.col-sm-8.scorecol {
-    margin-left: 3%;
-}
-
 .scoreFont {
     color: #FFFFFF;
 }
@@ -62,13 +58,44 @@ p {
 }
 
 .sbfonts2 {
-    text-align: right;
     color: #FFFFFF;
-    font-size: 36px;
+    font-size: 29px;
+}
+
+.wlright {
+    text-align: right;
+}
+
+span#wins.scoreFont,
+span#losses.scoreFont {
+    background-color: white;
+    color: #084117;
+    padding-top: 0%;
+    text-align: center;
+    width: 43%;
+    margin: 0 auto;
+    margin-left: 10%
+}
+
+#wins {
+    font-size: 38px;
+    padding-top: 78%;
+    padding-left: 33%;
+}
+
+#losses {
+    font-size: 38px;
+    padding-top: 49%;
+    padding-left: 33%;
 }
 
 #main-row {
     border-bottom: 19px solid white;
+    margin-right: 4%;
+}
+
+.corecol {
+    padding-bottom: 2%
 }
 
 div#remainingGuess {
@@ -96,37 +123,30 @@ div#guessedLetters {
     ;
 }
 
-#wins {
-    font-size: 38px;
-    padding-top: 78%;
-    padding-left: 33%;
-}
-
-#losses {
-    font-size: 38px;
-    padding-top: 49%;
-    padding-left: 33%;
-}
-
 img.num {
     position: absolute;
     top: 110.5%;
     width: 2%
 }
 
-.col-md-8.scorecol {
-    padding-top: 6%;
+.scorecol {
+    padding-bottom: 2%;
 }
 
-.col-md-4.winlo {
-    padding-left: 19%;
-    padding-top: 2%;
+
+/*border for winlo */
+
+.winlo {
+    border-left: 19px solid white;
+    height: 263px;
+    padding-top: 5%;
 }
 
 .scoredisplay {
     background-color: white;
-    margin-left: 2%;
-    padding-left: 3%;
+    padding-left: 1%;
+    margin: 0 auto;
+    width: 54%
 }
 
 
