@@ -21,22 +21,21 @@
 //      -   start new game
 
 // declare global variables
-var losses = 0;
-var wins = 0;
-var blanks = "";
-var guesses = 0;
-var guessedLetters = [];
-var successLetters = [];
-var wrongLetters = [];
-var currentWord;
-var userGuess;
-var blanks;
-var homerun = new Audio('assets/audio/homerun.mp3');
-var playBall = new Audio('assets/audio/playball.mp3');
-var out = new Audio('assets/audio/out.mp3');
+let losses = 0;
+let wins = 0;
+let guesses = 0;
+let guessedLetters = [];
+let successLetters = [];
+let wrongLetters = [];
+let currentWord;
+let userGuess;
+let blanks;
+const homerun = new Audio('assets/audio/homerun.mp3');
+const playBall = new Audio('assets/audio/playball.mp3');
+const out = new Audio('assets/audio/out.mp3');
 
 // set array of random words
-var teams = [
+const teams = [
     "homerun",
     "walk",
     "strikeout",
@@ -55,8 +54,7 @@ var teams = [
     "steal"
 ];
 
-// start game function
-var startGame = function() {
+function startGame() {
     //  Reset guessed letters array to 0 and remainingGuess to 0
     guesses = 0;
     // reset wrong guesses array
@@ -89,7 +87,7 @@ var startGame = function() {
     document.getElementById("remainingGuess").innerHTML = " ";
 
     // set #wrong-guesses to empty / clears the wrong guesses from the previous round
-    document.getElementById("guessedLetters").innerHTML = [];
+    // document.getElementById("guessedLetters").innerHTML = [];
 
     document.getElementById("wins").innerHTML = wins;
 
@@ -98,34 +96,34 @@ var startGame = function() {
 }
 
 // checkLetters() function
-var checkLetters = function() {
+function checkLetters() {
 
-        var letterInWord = false;
-        // Check if a letter exists inside currentWord array
-        for (var i = 0; i < blanks; i++) {
-            if (userGuess === currentWord[i]) {
-                letterInWord = true;
-            }
+    var letterInWord = false;
+    // Check if a letter exists inside currentWord array
+    for (var i = 0; i < blanks; i++) {
+        if (userGuess === currentWord[i]) {
+            letterInWord = true;
         }
-        // If `letterInWord`, then figure out exactly where (which indices).
-        if (letterInWord) {
-            for (var j = 0; j < currentWord.length; j++) {
-                if (currentWord[j] === userGuess) {
-                    // Fill in the blanksAndSuccesses with every instance of the letter.
-                    blankAndSuccesses[j] = userGuess;
-                    successLetters[j] = userGuess;
-                } // end if
-            } // end for
-        } else if (!letterInWord) {
-            // If the letter doesn't exist at all...
-            // ..then we add the letter to the list of wrong letters, and we subtract one of the guesses.
-            wrongLetters.push(userGuess);
-            guesses = guesses + 1;
-        };
+    }
+    // If `letterInWord`, then figure out exactly where (which indices).
+    if (letterInWord) {
+        for (var j = 0; j < currentWord.length; j++) {
+            if (currentWord[j] === userGuess) {
+                // Fill in the blanksAndSuccesses with every instance of the letter.
+                blankAndSuccesses[j] = userGuess;
+                successLetters[j] = userGuess;
+            } // end if
+        } // end for
+    } else if (!letterInWord) {
+        // If the letter doesn't exist at all...
+        // ..then we add the letter to the list of wrong letters, and we subtract one of the guesses.
+        wrongLetters.push(userGuess);
+        guesses = guesses + 1;
+    };
 
-    } // end checkLetters
+} // end checkLetters
 
-var roundComplete = function(userGuess) {
+function roundComplete(userGuess) {
 
     // update HTML to reflect number of guesses
 
