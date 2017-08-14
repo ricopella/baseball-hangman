@@ -2,7 +2,9 @@
 
 ### Overview
 
-* A browser based Hangman game themed around Baseball words.
+Browser based Hangman game themed around Baseball words.
+
+## Rules & Features
 
 * Each game, the user is given a word to try and guess the letters correctly.
 
